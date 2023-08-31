@@ -1,16 +1,7 @@
 package com.example.webfluxdemo.controller;
 
-import com.example.webfluxdemo.domain.ReqVO;
-import com.example.webfluxdemo.domain.RespVO;
-import com.example.webfluxdemo.domain.TokenVO;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
 /**
  * @program: webfluxdemo
@@ -37,16 +28,16 @@ public class DemoContorller {
 //    }
 
 
-    @GetMapping(value = "/pre")
-    public Mono<RespVO<TokenVO>> pre(@RequestParam("name") String name) throws InterruptedException {
-        long currentTimeMillis = System.currentTimeMillis();
-        //转换成yyyy-MM-dd HH:mm:ss格式的字符串
-        String time = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(currentTimeMillis));
-        System.out.println("pre name = " + name + "===" + time);
-        TokenVO tokenVO = new TokenVO();
-        tokenVO.setAccessToken(name);
-        return Mono.just(RespVO.success(tokenVO));
-    }
+//    @GetMapping(value = "/pre")
+//    public Mono<RespVO<TokenVO>> pre(@RequestParam("name") String name) throws InterruptedException {
+//        long currentTimeMillis = System.currentTimeMillis();
+//        //转换成yyyy-MM-dd HH:mm:ss格式的字符串
+//        String time = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date(currentTimeMillis));
+//        System.out.println("pre name = " + name + "===" + time);
+//        TokenVO tokenVO = new TokenVO();
+//        tokenVO.setAccessToken(name);
+//        return Mono.just(RespVO.success(tokenVO));
+//    }
 //
 //    @PostMapping(value = "/post")
 //    public Mono<String> post(ReqVO reqVO) throws InterruptedException {
@@ -86,18 +77,18 @@ public class DemoContorller {
 //    }
 
 
-    @GetMapping(value = "/demo1")
-    public Mono<Integer> demo1() throws InterruptedException {
-        Demo1 demo1 = new Demo1();
-        demo1.get();
-        return Mono.just(demo1.count);
-    }
-
-
-    @GetMapping(value = "/demo2")
-    public Mono<Integer> demo2() throws InterruptedException {
-        Demo2 demo2 = new Demo2();
-        demo2.get();
-        return Mono.just(demo2.count);
-    }
+//    @GetMapping(value = "/demo1")
+//    public Mono<Integer> demo1() throws InterruptedException {
+//        Demo1 demo1 = new Demo1();
+//        demo1.get();
+//        return Mono.just(demo1.count);
+//    }
+//
+//
+//    @GetMapping(value = "/demo2")
+//    public Mono<Integer> demo2() throws InterruptedException {
+//        Demo2 demo2 = new Demo2();
+//        demo2.get();
+//        return Mono.just(demo2.count);
+//    }
 }
